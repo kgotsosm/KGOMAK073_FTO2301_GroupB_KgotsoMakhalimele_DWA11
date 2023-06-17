@@ -2,26 +2,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   decrement,
   increment,
-  currentState,
-    showState,
+    currentState,
   reset,
 } from './counterSlice';
 import styles from './Counter.module.css';
 import {store} from "../../app/store";
 // make the state log when getState() is called
 
-store.subscribe(showState(store));
 
 function logger() {
-    console.log('state', store.getState());
+    console.log('State', store.getState());
 }
 
 store.subscribe(logger);
 
-// show the state in console when page loads
-store.subscribe(() => {
-    console.log(store.getState());
-});
 export function Counter() {
   const count = useSelector(currentState);
   const dispatch = useDispatch();
