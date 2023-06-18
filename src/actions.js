@@ -40,9 +40,8 @@ export const dispatch = (action) => {
 
 // reducer function to update the state value based on the action
 const reducer = (state, action) => {
-
+  
   switch (action.type) {
-
     case "counter-increment":
       state.value + 1;
       break;
@@ -57,9 +56,7 @@ const reducer = (state, action) => {
 
     default:
       break;
-
   }
 
   return state;
-  
 };

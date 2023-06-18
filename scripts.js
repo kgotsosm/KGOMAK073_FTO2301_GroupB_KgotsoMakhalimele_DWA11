@@ -21,7 +21,7 @@ const decrementHandler = () => {
   dispatch(decrement());
   counter.value = state.value;
   updateDisplayedValue();
-  console.log(state);
+  getState();
 };
 
 const decrementButton = document.getElementById("decrement");
