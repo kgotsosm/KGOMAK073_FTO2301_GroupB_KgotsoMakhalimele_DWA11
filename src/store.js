@@ -1,20 +1,9 @@
-//@ts-check
-/**
- * @typedef {Object} State
- * @prop {number} value
- */
+// state object initialised to zero
 export const state = {
     value: 0,
   };
   
-  /**
-   * @callback GetState
-   * @returns {State} 
-   */
-  
-  /**
-   * @return {number} 
-   */
+  // create the getState method to return the state value
   export const getState = () => {
     return state.value;
   };
