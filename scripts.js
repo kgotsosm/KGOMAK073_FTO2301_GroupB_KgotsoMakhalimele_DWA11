@@ -1,44 +1,66 @@
-import { state, getState } from './src/state.js';
+import { state, getState } from './src/store.js';
 import { increment, decrement, reset, dispatch } from './src/actions.js';
 
-console.log('Initial state:', getState())
+console.log('Initial state:', getState());
 
-const counter = document.getElementById('value')
+const counter = document.getElementById('value');
+
 counter.value = state.value;
+counter.addEventListener('change', () => {
+    state.value = counter.value;
+});
+
 
 // Handle the decrement click
-
-const decrementHanlder = () => {
+const decrementHandler = () => {
     dispatch(decrement());
     counter.value = state.value;
-}
+    document.getElementById('value').innerText = state.value;
+    console.log(state);
+};
 
-const decrementButton = document.getElementById('decrement')
-decrementButton.addEventListener('click', decrementHanlder);
+const decrementButton = document.getElementById('decrement');
+decrementButton.addEventListener('click', decrementHandler);
 
 // Handle the increment click
-
 const incrementHandler = () => {
     dispatch(increment());
     counter.value = state.value;
-}
+    document.getElementById('value').innerText = state.value;
+    console.log(state);
+};
 
-const incrementButton = document.getElementById('increment')
+const incrementButton = document.getElementById('increment');
 incrementButton.addEventListener('click', incrementHandler);
 
 // Handle the reset click
-
-document.getElementById('reset').addEventListener('click', function () {
-    dispatch(reset());
-    counter.value = state.value;
-});
-
 const resetHandler = () => {
     dispatch(reset());
-    parseInt(counter.value = 0);
-    alert('The counter has been reset');
-}
+    counter.value = state.value;
+    document.getElementById('value').innerText = state.value;
+    console.log(state);
+};
 
-const resetButton = document.getElementById('reset')
+const resetButton = document.getElementById('reset');
 resetButton.addEventListener('click', resetHandler);
 
+const container = document.querySelector('.alert-duration');
+const alert = container.querySelector('sl-alert');
+
+//make all the buttons go away when the alert is shown
+alert.addEventListener('sl-show', () => {
+    decrementButton.style.display = 'none';
+    incrementButton.style.display = 'none';
+    resetButton.style.display = 'none';
+});
+
+//make all the buttons come back when the alert is hidden
+alert.addEventListener('sl-hide', () => {
+    decrementButton.style.display = 'inline-block';
+    incrementButton.style.display = 'inline-block';
+    resetButton.style.display = 'inline-block';
+});
+
+
+
+resetButton.addEventListener('click', () => alert.show());

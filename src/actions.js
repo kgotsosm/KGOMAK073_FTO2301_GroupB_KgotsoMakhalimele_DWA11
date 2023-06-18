@@ -1,20 +1,19 @@
-import { state } from "./state.js";
+import { state } from "./store.js";
+
 /**
  * @typedef {Object} Increment
  * @prop {"counter-increment"} type
- * @prop {state}
+ * @prop {state} state
  */
 
 /**
  * @typedef {Object} Decrement
  * @prop {"counter-decrement"} type
- * @prop {state}
  */
 
 /**
  * @typedef {Object} Reset
  * @prop {"counter-reset"} type
- * @prop {state}
  */
 
 /**
@@ -22,68 +21,60 @@ import { state } from "./state.js";
  */
 
 /**
- * @param {object} state
- * @param {counter} state.value
  * @returns {Increment}
  */
-
 export const increment = () => {
-    state.value += 1;
-    return {
-        type: "counter-increment",
-    };
+  state.value += 1;
+  return {
+    type: "counter-increment",
+  };
 };
 
 /**
- * @param {object} state
- * @param {number} state.value
  * @returns {Decrement}
  */
-
 export const decrement = () => {
-    state.value -= 1;
-    return {
-        type: "counter-decrement",
-    };
+  state.value -= 1;
+  return {
+    type: "counter-decrement",
+  };
 };
 
 /**
- * @param {object} state
- * @param {number} state.value
- * @returns {Decrement}
+ * @returns {Reset}
  */
 export const reset = () => {
-    state.value = 0;
-    return {
-        type: "counter-reset",
-    };
+  state.value = 0;
+  return {
+    type: "counter-reset",
+  };
 };
 
 /**
  * @param {Action} action
  */
 export const dispatch = (action) => {
-    return reducer(state, action);
+  return reducer(state, action);
 };
 
 /**
- * @param {state} state
+ * @param {object} state
  * @param {Action} action
- * @return {state}
+ * @returns {object}
  */
-
 const reducer = (state, action) => {
-    switch (action.type) {
-        case "counter-increment": {
-            state.value;
-        }
-        case "counter-decrement": {
-            state.value;
-        }
-        case "counter-reset": {
-            state.value;
-        }
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case "counter-increment":
+      state.value + 1;
+      break;
+    case "counter-decrement":
+      state.value - 1;
+      break;
+    case "counter-reset":
+      state.value = 0;
+      break;
+    default:
+      break;
+  }
+  return state;
 };

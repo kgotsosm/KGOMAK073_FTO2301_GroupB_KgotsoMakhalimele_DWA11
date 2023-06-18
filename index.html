@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <script src="scripts.js" type="module" async defer></script>
-    </head>
-    <body>
-        <h1 id="title">Tally Count</h1>
-        <div id="value">0</div>
-        <button id="increment">Add</button>
-        <button id="decrement">Subtract</button>
-        <button id="reset">Reset</button> 
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/themes/light.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/shoelace-autoloader.js"></script>
+    <script src="scripts.js" type="module" async defer></script>
+</head>
+
+<body>
+
+    <h1 id="title">Tally Count</h1>
+    <div id="value">0</div>
+
+    <div class="buttons">
+
+        <sl-button id="increment">Add</sl-button>
+        <div class="alert-duration">
+            <sl-button id="reset" variant="primary">Reset</sl-button>
+
+            <sl-alert variant="primary" duration="3000" closable>
+                <sl-icon slot="icon" name="info-circle"></sl-icon>
+                The counter has been reset to zero
+            </sl-alert>
+        </div>
+        <sl-button id="decrement">Subtract</sl-button>
+
+    </div>
+
+</body>
+
 </html>

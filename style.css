@@ -1,0 +1,35 @@
+body {
+    background-color: #C1E3ED;
+}
+
+#title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#value {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .buttons sl-button,
+  .buttons sl-alert {
+    margin-right: 10px; 
+  }
