@@ -42,25 +42,25 @@ const resetHandler = () => {
 };
 
 const resetButton = document.getElementById('reset');
+
 resetButton.addEventListener('click', resetHandler);
+resetButton.addEventListener('click', () => alert.show());
 
 const container = document.querySelector('.alert-duration');
 const alert = container.querySelector('sl-alert');
 
-//make all the buttons go away when the alert is shown
+// Hide buttons when the reset alert is shown
+
 alert.addEventListener('sl-show', () => {
     decrementButton.style.display = 'none';
     incrementButton.style.display = 'none';
     resetButton.style.display = 'none';
 });
 
-//make all the buttons come back when the alert is hidden
+// Show buttons when reset alert is gone
+
 alert.addEventListener('sl-hide', () => {
     decrementButton.style.display = 'inline-block';
     incrementButton.style.display = 'inline-block';
     resetButton.style.display = 'inline-block';
 });
-
-
-
-resetButton.addEventListener('click', () => alert.show());
