@@ -44,15 +44,12 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "counter-increment":
       return state.value + 1;
-      break;
 
     case "counter-decrement":
       return state.value - 1;
-      break;
 
     case "counter-reset":
       state.value = 0;
-      break;
 
     default:
       break;

@@ -17,17 +17,21 @@ const updateDisplayedValue = () => {
 };
 
 // Handle the decrement click and update the state value
+
 const decrementHandler = () => {
+
   dispatch(decrement());
   counter.value = state.value;
   updateDisplayedValue();
-  getState();
+  console.log(state);
+  
 };
 
 const decrementButton = document.getElementById("decrement");
 decrementButton.addEventListener("click", decrementHandler);
 
 // Handle the increment click
+
 const incrementHandler = () => {
   dispatch(increment());
   counter.value = state.value;
@@ -38,7 +42,8 @@ const incrementHandler = () => {
 const incrementButton = document.getElementById("increment");
 incrementButton.addEventListener("click", incrementHandler);
 
-// Handle the reset click
+// Handle the reset click 
+
 const resetHandler = () => {
   dispatch(reset());
   counter.value = state.value;
