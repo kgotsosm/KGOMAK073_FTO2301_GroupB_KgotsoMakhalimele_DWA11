@@ -43,11 +43,11 @@ const reducer = (state, action) => {
   
   switch (action.type) {
     case "counter-increment":
-      state.value + 1;
+      return state.value + 1;
       break;
 
     case "counter-decrement":
-      state.value - 1;
+      return state.value - 1;
       break;
 
     case "counter-reset":
